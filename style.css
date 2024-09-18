@@ -1,312 +1,128 @@
-/* Genel Ayarlar */
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-body, html {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    background-color: #000;
-}
-
-/* Login Paneli */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+.container {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .login-box {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: #fff;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    width: 400px;
     text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    animation: slideIn 1s ease-out;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.textbox {
     position: relative;
-    border: 2px solid transparent; /* Neon efekti için başlangıçta şeffaf */
-    animation: neonBorder 1.5s infinite; /* Neon efekti animasyonu */
+    margin-bottom: 30px;
 }
 
-@keyframes neonBorder {
-    0% {
-        border-color: rgba(255, 0, 0, 0.8);
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-    }
-    50% {
-        border-color: rgba(255, 0, 0, 1);
-        box-shadow: 0 0 20px rgba(255, 0, 0, 1);
-    }
-    100% {
-        border-color: rgba(255, 0, 0, 0.8);
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-    }
-}
-
-/* Başlık Stili */
-.title {
-    color: #fff;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-/* Input ve Buton Stilleri */
-.input-group {
-    margin-bottom: 20px;
-}
-
-input {
+.textbox input {
     width: 100%;
     padding: 15px;
+    background: #f4f4f4;
     border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 16px;
     border-radius: 5px;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+}
+
+.textbox input:focus {
+    background: #e2e2e2;
     outline: none;
-    font-weight: 300;
-    transition: background-color 0.3s;
 }
 
-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-input:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Login Butonu */
-.login-btn {
+button {
     width: 100%;
     padding: 15px;
-    background-color: #ffffff; /* Arka plan rengini beyaz yaptık */
+    background: #3498db;
     border: none;
-    color: #000000; /* Metin rengini siyah yaptık */
+    border-radius: 5px;
+    color: #fff;
     font-size: 18px;
-    font-weight: 700;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background 0.3s ease;
 }
 
-.login-btn:hover {
-    background-color: #ffba00; /* Hover efekti için arka plan rengini gri yaptık */
-    transform: translateY(-3px);
+button:hover {
+    background: #2980b9;
 }
 
-/* Şifre İstemek İçin Ekran */
-.password-prompt {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-    text-align: center;
-    display: none;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-.password-prompt h2 {
-    margin-bottom: 20px;
-}
-
-.password-prompt input {
-    width: 80%;
-    padding: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.password-prompt button {
-    padding: 10px 20px;
-    background-color: #ffffff;
-    border: none;
-    color: #000;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.password-prompt button:hover {
-    background-color: #ffc533;
-    transform: translateY(-3px);
-}
-
-/* Kapama Düğmesi */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close-btn:hover {
-    color: #ffba00;
-}
-
-/* Alert Box (Giriş Başarılı/Başarısız) */
-.alert-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid #fff;
-    border-radius: 10px;
-    text-align: center;
-    display: none;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-    animation: popIn 0.5s ease;
-}
-
-.alert-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #fff;
-}
-
-.alert-box.success {
-    border-color: #00ff99;
-    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7);
-}
-
-.alert-box.error {
-    border-color: #ff0033;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.7);
-}
-
-.alert-box p {
-    font-size: 18px;
+.error-message {
+    color: #e74c3c;
     margin-top: 10px;
+    font-size: 14px;
 }
 
-.alert-icon {
-    font-size: 50px;
+.notification {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    display: none;
+    animation: fadeIn 1s ease, slideInTop 1s ease;
 }
 
-@keyframes popIn {
+.notification.success {
+    background: #2ecc71;
+    border: 2px solid #27ae60;
+}
+
+.notification.error {
+    background: #e74c3c;
+    border: 2px solid #c0392b;
+}
+
+@keyframes slideIn {
     from {
-        transform: scale(0.8) translate(-50%, -50%);
+        transform: translateY(-50%);
         opacity: 0;
     }
     to {
-        transform: scale(1) translate(-50%, -50%);
+        transform: translateY(0);
         opacity: 1;
     }
 }
 
-/* Profil Resimleri */
-.profile-img {
-    width: 60px; /* Boyut küçültüldü */
-    height: 60px; /* Boyut küçültüldü */
-    border-radius: 50%;
-    border: none; /* Beyaz çerçeve kaldırıldı */
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-    animation: modernPulse 2s infinite; /* Animasyon */
-    position: absolute;
-    bottom: 10px; /* Sayfanın en altına yerleştirildi */
-    left: 51%; /* Profil fotoğrafının sağındaki alanda hizaladı */
-    transform: translateX(-50%); /* Ortalanmış */
-}
-
-.new-profile-img {
-    width: 60px; /* Boyut aynı kaldı */
-    height: 60px; /* Boyut aynı kaldı */
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-    animation: modernPulse 2s infinite; /* Aynı animasyon */
-    position: absolute;
-    bottom: 10px; /* Sayfanın en altına yerleştirildi */
-    left: 47%; /* Yeni profil fotoğrafı için uygun hizalama */
-    transform: translateX(-50%); /* Ortalanmış */
-}
-
-/* Modern Pulse Animasyonu */
-@keyframes modernPulse {
-    0% {
-        transform: scale(1) translateY(0);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.1) translateY(-5px);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1) translateY(0);
-        opacity: 0.8;
-    }
-}
-
-/* Yönlendirme Mesajı */
-.redirect-message {
-    position: fixed;
-    top: 10px; /* Sağ üst köşeye yerleştirildi */
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: #fff;
-    display: none; /* Varsayılan olarak gizli */
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Hatalı Şifre Mesajı */
-.error-message {
-    position: fixed;
-    bottom: 10px; /* Sayfanın en altına yerleştirildi */
-    right: 10px;  /* Sayfanın en sağ köşesine yerleştirildi */
-    background-color: rgba(255, 0, 0, 0.9); /* Kırmızı arka plan */
-    color: #fff; /* Beyaz metin */
-    border: 2px solid #ff0033; /* Kırmızı çerçeve */
-    padding: 15px;
-    border-radius: 5px;
-    display: none; /* Varsayılan olarak gizli */
-    animation: fadeInOut 6s ease-out; /* Animasyon */
-    z-index: 1000; /* Üstte görünmesini sağla */
-}
-
-@keyframes fadeInOut {
-    0% {
+@keyframes fadeIn {
+    from {
         opacity: 0;
     }
-    10% {
+    to {
         opacity: 1;
     }
-    90% {
-        opacity: 1;
-    }
-    100% {
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100%);
         opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
