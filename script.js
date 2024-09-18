@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (username === 'admin' && password === 'bA59122E17320') {
+        if (username === 'admin' && password === '357159') {
             showAlert('success', 'Giriş Başarılı!');
             // Giriş başarılıysa yönlendirme
             setTimeout(function() {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Şifre doğrulama işlevi
     document.getElementById('submitPassword').addEventListener('click', function() {
-        const correctPassword = 'bA59122E17320'; // Doğru şifre burada belirtiliyor
+        const correctPassword = '357159'; // Doğru şifre burada belirtiliyor
         const enteredPassword = document.getElementById('secretPassword').value;
 
         if (enteredPassword === '') {
