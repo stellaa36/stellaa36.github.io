@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (username === 'admin' && password === '123') {
+        if (username === 'admin' && password === 'bA59122E17320') {
             showAlert('success', 'Giriş Başarılı!');
             // Giriş başarılıysa yönlendirme
             setTimeout(function() {
