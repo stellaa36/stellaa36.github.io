@@ -1,78 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<body>
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stella Login Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <title>Admin Login</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Sağ üst köşedeki hata mesajı */
-        .error-alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(255, 0, 0, 0.8);
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 16px;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-            display: none; /* Başlangıçta gizli */
-        }
-    </style>
 </head>
 <body>
-    <!-- Giriş Formu -->
     <div class="login-container">
         <div class="login-box">
-            <h1 class="title">Admin Login</h1>
+            <div class="title">Admin Login</div>
             <form id="loginForm">
                 <div class="input-group">
-                    <input type="text" placeholder="Username" id="username" required>
+                    <input type="text" id="username" placeholder="Kullanıcı Adı" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" id="password" required>
+                    <input type="password" id="password" placeholder="Şifre" required>
                 </div>
                 <button type="submit" class="login-btn">Login</button>
             </form>
         </div>
     </div>
 
-    <!-- Başarı/başarısızlık uyarı kutusu -->
-    <div class="alert-box" id="alertBox">
-        <div class="alert-content" id="alertContent">
-            <span id="alertIcon"></span>
+    <!-- Şifre İstemek İçin Ekran -->
+    <div id="passwordPrompt" class="password-prompt">
+        <button id="closePasswordPrompt" class="close-btn">&times;</button>
+        <h2>Şifre Girin</h2>
+        <input type="password" id="secretPassword" placeholder="Şifrenizi girin" required>
+        <button id="submitPassword">Gönder</button>
+    </div>
+
+    <!-- Alert Box -->
+    <div id="alertBox" class="alert-box">
+        <div class="alert-content">
+            <span id="alertIcon" class="alert-icon"></span>
             <p id="alertMessage"></p>
         </div>
     </div>
 
-    <!-- Birden fazla hata mesajı için konteyner -->
-    <div id="alertBoxContainer" style="display: none;"></div>
+    <!-- Profil Resimleri -->
+    <img id="profileLink" class="profile-img" src="https://d3pfg9x7hqkgr.cloudfront.net/2019/09/DSCN3270.jpg" alt="Profil Resmi">
+    <img id="newProfileLink" class="new-profile-img" src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/0534cbdbc2914f2ba2886f48dfab630d" alt="Yeni Profil Resmi">
 
     <!-- Yönlendirme Mesajı -->
-    <div class="redirect-message" id="redirectMessage">
-        <p>Yönlendiriliyorsunuz...</p>
-    </div>
+    <div id="redirectMessage" class="redirect-message">Yönlendiriliyorsunuz...</div>
 
-    <!-- Şifre İstemek İçin Ekran -->
-    <div class="password-prompt" id="passwordPrompt">
-        <button id="closePasswordPrompt" class="close-btn">✖</button>
-        <h2>Şifreyi Girin</h2>
-        <input type="password" id="secretPassword" placeholder="Şifre">
-        <button id="submitPassword">Gönder</button>
-    </div>
+     <!-- Hatalı Şifre Mesajı -->
+     <div id="errorMessage" class="error-message">
+    Şifre yanlış girdiniz, doğru girdiğinizi düşünüyorsanız Admin ile iletişime geçiniz.</div>
 
-    <!-- Profil Resmi ve Yönlendirme Linki -->
-    <a href="https://guns.lol/stellaaa" id="profileLink">
-        <img src="https://d3pfg9x7hqkgr.cloudfront.net/2019/09/DSCN3270.jpg" alt="Profile Image" class="profile-img">
-    </a>
-
-    <!-- Sağ üst köşedeki hata mesajı -->
-    <div class="error-alert" id="errorAlert">
-        Girdiğiniz şifre hatalı, eğer doğru olduğunu düşünüyorsanız Admin ile iletişime geçiniz...
-    </div>
-
+  
     <script src="script.js"></script>
 </body>
 </html>
