@@ -224,18 +224,31 @@ input:focus {
     }
 }
 
-/* Profil Resmi */
+/* Profil Resimleri */
 .profile-img {
     width: 60px; /* Boyut küçültüldü */
     height: 60px; /* Boyut küçültüldü */
     border-radius: 50%;
     border: none; /* Beyaz çerçeve kaldırıldı */
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-    animation: modernPulse 2s infinite; /* Yeni animasyon eklendi */
+    animation: modernPulse 2s infinite; /* Animasyon */
     position: absolute;
     bottom: 10px; /* Sayfanın en altına yerleştirildi */
-    left: 48.7%;
-    transform: translateX(-40%); /* Ortalanmış */
+    left: 51%; /* Profil fotoğrafının sağındaki alanda hizaladı */
+    transform: translateX(-50%); /* Ortalanmış */
+}
+
+.new-profile-img {
+    width: 60px; /* Boyut aynı kaldı */
+    height: 60px; /* Boyut aynı kaldı */
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: modernPulse 2s infinite; /* Aynı animasyon */
+    position: absolute;
+    bottom: 10px; /* Sayfanın en altına yerleştirildi */
+    left: 47%; /* Yeni profil fotoğrafı için uygun hizalama */
+    transform: translateX(-50%); /* Ortalanmış */
 }
 
 /* Modern Pulse Animasyonu */
@@ -257,57 +270,43 @@ input:focus {
 /* Yönlendirme Mesajı */
 .redirect-message {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10px; /* Sağ üst köşeye yerleştirildi */
+    right: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     border: 2px solid #fff;
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    display: none;
-    animation: fadeIn 0.5s ease-out forwards;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translate(-50%, -50%);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translate(-50%, -50%);
-    }
-}
-
-/* Sağ Üst Köşede Kırmızı Çerçeve İçinde Metin */
-.error-alert {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(255, 0, 0, 0.8);
-    color: #fff;
-    padding: 15px 20px;
+    padding: 10px 20px;
     border-radius: 5px;
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-    z-index: 9999; /* Üstte kalmasını sağlar */
-    display: none; /* Başlangıçta gizli */
-    animation: slideIn 0.5s ease-out;
+    color: #fff;
+    display: none; /* Varsayılan olarak gizli */
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Mesaj Animasyonları */
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
+/* Hatalı Şifre Mesajı */
+.error-message {
+    position: fixed;
+    bottom: 10px; /* Sayfanın en altına yerleştirildi */
+    right: 10px;  /* Sayfanın en sağ köşesine yerleştirildi */
+    background-color: rgba(255, 0, 0, 0.9); /* Kırmızı arka plan */
+    color: #fff; /* Beyaz metin */
+    border: 2px solid #ff0033; /* Kırmızı çerçeve */
+    padding: 15px;
+    border-radius: 5px;
+    display: none; /* Varsayılan olarak gizli */
+    animation: fadeInOut 6s ease-out; /* Animasyon */
+    z-index: 1000; /* Üstte görünmesini sağla */
+}
+
+@keyframes fadeInOut {
+    0% {
         opacity: 0;
     }
-    to {
-        transform: translateX(0);
+    10% {
         opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
