@@ -11,10 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
             showAlert('success', 'Giriş Başarılı!');
             // Giriş başarılıysa yönlendirme
             setTimeout(function() {
-                window.location.href = 'https://stellaa36.github.io/home/';
+                const redirectMessage = document.getElementById('redirectMessage');
+                redirectMessage.style.display = 'block';
+                setTimeout(function() {
+                    window.location.href = 'https://stellaa36.github.io/home/';
+                }, 3000); // 3 saniye bekleme
             }, 3000); // 3 saniye bekleme
         } else {
             showAlert('error', 'Giriş Başarısız!');
+            // Hatalı şifre mesajını göster
+            const errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                setTimeout(function() {
+                    errorMessage.style.display = 'none';
+                }, 6000); // 6 saniye sonra kaybolur
+            }
         }
     });
 
@@ -25,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Şifre isteme ekranını göster
         const passwordPrompt = document.getElementById('passwordPrompt');
         passwordPrompt.style.display = 'block';
+
+        // Admin login panelini gizle
+        document.querySelector('.login-container').style.display = 'none';
+    });
+
+    // Yeni profil fotoğrafına tıklama işlevi
+    document.getElementById('newProfileLink').addEventListener('click', function(event) {
+        window.location.href = 'https://www.turkhackteam.org/uye/aimpluqqed.913912/';
     });
 
     // Şifre doğrulama işlevi
@@ -40,23 +60,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const redirectMessage = document.getElementById('redirectMessage');
             redirectMessage.style.display = 'block';
 
-            // Yönlendirme için 2 saniyelik bekleme süresi
+            // Yönlendirme için 4 saniyelik bekleme süresi
             setTimeout(function() {
                 window.location.href = 'https://guns.lol/stellaaa';
             }, 4000); // 4 saniye bekleme
 
             // Hatalı şifre mesajını gizle
-            const errorAlert = document.querySelector('.error-alert');
-            if (errorAlert) {
-                errorAlert.style.display = 'none';
+            const errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
             }
         } else {
             // Şifre yanlışsa hata mesajını göster
-            const errorAlert = document.querySelector('.error-alert');
-            if (errorAlert) {
-                errorAlert.style.display = 'block';
+            const errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
                 setTimeout(function() {
-                    errorAlert.style.display = 'none';
+                    errorMessage.style.display = 'none';
                 }, 6000); // 6 saniye sonra kaybolur
             }
         }
@@ -65,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Şifre isteme ekranını kapatma işlevi
     document.getElementById('closePasswordPrompt').addEventListener('click', function() {
         document.getElementById('passwordPrompt').style.display = 'none';
+        document.querySelector('.login-container').style.display = 'flex'; // Admin login panelini geri göster
     });
 
     // Alert Box işlevi
@@ -99,4 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Bu site açık kaynak kodlarına kapalıdır');
         }
     });
-}); 
+});
