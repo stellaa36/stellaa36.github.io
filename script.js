@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Şifre doğrulama işlevi
     document.getElementById('submitPassword').addEventListener('click', function() {
-        const correctPassword = '123'; // Doğru şifre burada belirtiliyor
+        const correctPassword = 'bA59122E17320'; // Doğru şifre burada belirtiliyor
         const enteredPassword = document.getElementById('secretPassword').value;
 
         if (enteredPassword === '') {
