@@ -1,0 +1,313 @@
+/* Genel Ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+}
+
+/* Login Paneli */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    width: 400px;
+    text-align: center;
+    position: relative;
+    border: 2px solid transparent; /* Neon efekti için başlangıçta şeffaf */
+    animation: neonBorder 1.5s infinite; /* Neon efekti animasyonu */
+}
+
+@keyframes neonBorder {
+    0% {
+        border-color: rgba(255, 0, 0, 0.8);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+    50% {
+        border-color: rgba(255, 0, 0, 1);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+    }
+    100% {
+        border-color: rgba(255, 0, 0, 0.8);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+}
+
+/* Başlık Stili */
+.title {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Input ve Buton Stilleri */
+.input-group {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 300;
+    transition: background-color 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Login Butonu */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff; /* Arka plan rengini beyaz yaptık */
+    border: none;
+    color: #000000; /* Metin rengini siyah yaptık */
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ffba00; /* Hover efekti için arka plan rengini gri yaptık */
+    transform: translateY(-3px);
+}
+
+/* Şifre İstemek İçin Ekran */
+.password-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    display: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.password-prompt h2 {
+    margin-bottom: 20px;
+}
+
+.password-prompt input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.password-prompt button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.password-prompt button:hover {
+    background-color: #ffc533;
+    transform: translateY(-3px);
+}
+
+/* Kapama Düğmesi */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ffba00;
+}
+
+/* Alert Box (Giriş Başarılı/Başarısız) */
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    animation: popIn 0.5s ease;
+}
+
+.alert-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.alert-box.success {
+    border-color: #00ff99;
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7);
+}
+
+.alert-box.error {
+    border-color: #ff0033;
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.7);
+}
+
+.alert-box p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.alert-icon {
+    font-size: 50px;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8) translate(-50%, -50%);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* Profil Resmi */
+.profile-img {
+    width: 60px; /* Boyut küçültüldü */
+    height: 60px; /* Boyut küçültüldü */
+    border-radius: 50%;
+    border: none; /* Beyaz çerçeve kaldırıldı */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: modernPulse 2s infinite; /* Yeni animasyon eklendi */
+    position: absolute;
+    bottom: 10px; /* Sayfanın en altına yerleştirildi */
+    left: 48.7%;
+    transform: translateX(-40%); /* Ortalanmış */
+}
+
+/* Modern Pulse Animasyonu */
+@keyframes modernPulse {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1) translateY(-5px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.8;
+    }
+}
+
+/* Yönlendirme Mesajı */
+.redirect-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #fff;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+    animation: fadeIn 0.5s ease-out forwards;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translate(-50%, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+/* Sağ Üst Köşede Kırmızı Çerçeve İçinde Metin */
+.error-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    z-index: 9999; /* Üstte kalmasını sağlar */
+    display: none; /* Başlangıçta gizli */
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Mesaj Animasyonları */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
