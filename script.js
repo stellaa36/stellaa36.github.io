@@ -4,11 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.getElementById('success-message');
     const warningMessage = document.getElementById('warning-message');
 
+    // localStorage'a log eklemek için fonksiyon
+    function logToLocalStorage(message) {
+        const logs = JSON.parse(localStorage.getItem('loginLogs')) || [];
+        logs.push(message);
+        localStorage.setItem('loginLogs', JSON.stringify(logs));
+    }
+
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
+        const logMessage = `Giriş denemesi: ${username}, ${new Date().toLocaleString()}`;
+        logToLocalStorage(logMessage);
+
         if (username === 'admin' && password === '12345') {
             // Başarılı girişte yeşil mesajı göster
             successMessage.classList.add('show');
@@ -17,12 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Yönlendirme için bir süre bekleyip yönlendiriyoruz
                 window.location.href = 'https://stellaa36.github.io/home/';
             }, 3000);
+
+            // Başarılı giriş logu
+            logToLocalStorage(`Başarılı giriş: ${username}, ${new Date().toLocaleString()}`);
         } else {
             // Hatalı girişte kırmızı mesajı göster
             errorMessage.classList.add('show');
             setTimeout(() => {
                 errorMessage.classList.remove('show');
             }, 3000);
+
+            // Hatalı giriş logu
+            logToLocalStorage(`Hatalı giriş: ${username}, ${new Date().toLocaleString()}`);
         }
     });
 
