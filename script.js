@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const logMessage = `Giriş denemesi: ${username}, ${new Date().toLocaleString()}`;
         logToLocalStorage(logMessage);
-
-        if (username === 'admin' && password === '357159') {
-        if (username === 'efe' && password === '357159') {
+        
+        if ((username === 'admin' && password === '357159') || (username === 'efe' && password === '357159')) {
+            
             // Başarılı girişte yeşil mesajı göster
             successMessage.classList.add('show');
             setTimeout(() => {
