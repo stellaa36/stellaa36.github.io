@@ -1,128 +1,145 @@
-body {
+/* Genel Ayarlar */
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #3498db, #2ecc71);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    overflow: hidden;
-}
-
-.container {
-    position: relative;
+    background: linear-gradient(135deg, #09203f, #537895);
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100%;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1000px;
 }
 
-.login-box {
-    background: #fff;
+/* Arka Plan Efekti */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #09203f, #000);
+    animation: background-animation 20s infinite linear;
+}
+
+@keyframes background-animation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+/* 3D Uyarı Mesajı */
+#error-message, #success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.5) rotateY(30deg);
+    opacity: 0;
+    transition: all 0.5s ease;
+    visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+#error-message {
+    background: rgba(255, 0, 0, 0.7);
+    border: 2px solid red;
+}
+
+#success-message {
+    background: rgba(0, 255, 0, 0.7);
+    border: 2px solid green;
+}
+
+#error-message.show, #success-message.show {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Login Container */
+.login-container {
+    position: relative;
+    width: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     padding: 40px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-    animation: slideIn 1s ease-out;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
 }
 
-h2 {
+.login-container:hover {
+    transform: rotateY(5deg) rotateX(2deg);
+}
+
+/* Başlık */
+.login-box h2 {
+    color: #fff;
+    font-size: 24px;
     margin-bottom: 30px;
-    color: #333;
+    text-transform: uppercase;
 }
 
+/* Input Boxlar */
 .textbox {
+    margin-bottom: 20px;
     position: relative;
-    margin-bottom: 30px;
+    width: 100%;
 }
 
 .textbox input {
     width: 100%;
     padding: 15px;
-    background: #f4f4f4;
+    background: rgba(255, 255, 255, 0.15);
     border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: background 0.3s ease;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
 .textbox input:focus {
-    background: #e2e2e2;
-    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }
 
-button {
+/* 3D Buton Efekti */
+.login-btn {
     width: 100%;
     padding: 15px;
-    background: #3498db;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     color: #fff;
     font-size: 18px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(10px);
+    perspective: 500px;
 }
 
-button:hover {
-    background: #2980b9;
+.login-btn:hover {
+    transform: translateZ(15px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 150, 255, 0.7);
 }
 
-.error-message {
-    color: #e74c3c;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.notification {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 14px;
-    display: none;
-    animation: fadeIn 1s ease, slideInTop 1s ease;
-}
-
-.notification.success {
-    background: #2ecc71;
-    border: 2px solid #27ae60;
-}
-
-.notification.error {
-    background: #e74c3c;
-    border: 2px solid #c0392b;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInTop {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.login-btn:active {
+    transform: translateZ(5px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
