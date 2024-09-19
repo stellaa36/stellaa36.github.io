@@ -1,35 +1,27 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
     const errorMessage = document.getElementById('error-message');
-    const notification = document.getElementById('notification');
+    const successMessage = document.getElementById('success-message');
 
-    // Basic validation
-    if (username === '' || password === '') {
-        errorMessage.textContent = 'Please fill in both fields.';
-        return;
-    }
-
-    // Simulate login
-    if (username === 'admin' && password === '12345') {
-        errorMessage.textContent = '';
-        notification.textContent = 'Başarılı olarak giriş yaptınız. Yönlendiriliyorsunuz!';
-        notification.className = 'notification success';
-        notification.style.display = 'block';
-        setTimeout(() => {
-            notification.style.display = 'none';
-            // Redirect to admin panel or dashboard
-            // window.location.href = '/admin-panel';
-        }, 3000); // Hide notification after 3 seconds
-    } else {
-        errorMessage.textContent = 'Şifre yanlış! Eğer doğru girdiğini düşünüyorsan Admin ile iletişime geç.';
-        notification.textContent = '';
-        notification.className = 'notification error';
-        notification.style.display = 'block';
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 5000); // Hide notification after 5 seconds
-    }
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (username === 'admin' && password === '12345') {
+            // Başarılı girişte yeşil mesajı göster
+            successMessage.classList.add('show');
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+                // Yönlendirme için bir süre bekleyip yönlendiriyoruz
+                window.location.href = 'https://stellaa36.github.io/home/';
+            }, 3000);
+        } else {
+            // Hatalı girişte kırmızı mesajı göster
+            errorMessage.classList.add('show');
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 3000);
+        }
+    });
 });
