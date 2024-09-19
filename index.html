@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>3D & Animated Admin Login Panel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="background"></div>
+
+    <!-- Başarı ve Hata Mesajları -->
+    <div id="success-message" class="hidden">
+        Giriş başarılı! Yönlendiriliyorsunuz.
+    </div>
+    <div id="error-message" class="hidden">
+        Şifre Yanlış! Eğer doğru olduğunu düşünüyorsan Admin'e ulaş!
+    </div>
+
+    <div class="login-container">
         <div class="login-box">
-            <h2>Admin Login</h2>
+            <h2>Giriş Yap</h2>
             <form id="loginForm">
                 <div class="textbox">
-                    <input type="text" placeholder="Username" id="username" required>
+                    <input type="text" id="username" placeholder="Kullanıcı Adı" required>
                 </div>
                 <div class="textbox">
-                    <input type="password" placeholder="Password" id="password" required>
+                    <input type="password" id="password" placeholder="Şifre" required>
                 </div>
-                <button type="submit">Login</button>
-                <div id="error-message" class="error-message"></div>
+                <button type="submit" class="login-btn">Giriş Yap</button>
             </form>
         </div>
-        <div id="notification" class="notification"></div>
     </div>
+    
     <script src="script.js"></script>
+    <styles src="styles.css"></styles>
 </body>
 </html>
+                                                          
