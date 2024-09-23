@@ -9,12 +9,22 @@
 </head>
 <body>
     <div class="background"></div>
-    
+
     <!-- Header -->
     <header class="header">
         <h1>Stella'nın Sitesine Hoşgeldiniz</h1>
         <nav>
             <ul>
+                <!-- Dil Seçimi Butonu En Sağ Üstte -->
+                <li class="language-container">
+                    <button class="language-selector">Dil Seçimi ▼</button>
+                    <div id="language-options" class="language-options">
+                        <a href="#" onclick="changeLanguage('tr')">Türkçe</a>
+                        <a href="#" onclick="changeLanguage('en')">English</a>
+                        <a href="#" onclick="changeLanguage('es')">İspanyolca</a>
+                        <a href="#" onclick="changeLanguage('fr')">Français</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,22 +36,27 @@
         <a href="https://stellaa36.github.io/login/" class="login-btn">Giriş Yap</a>
     </div>
 
+
+
     <!-- About Section -->
     <section class="about-section">
         <h2>Hakkımızda</h2>
         <p>Kendi halimde site geliştiriyorum.</p>
     </section>
-    
-        <!-- THT Section -->
+
+    <!-- THT Section -->
     <section class="tht-section">
         <h2>İletişim</h2>
         <br>
-       <a href="https://www.turkhackteam.org/uye/aimpluqqed.913912/" class="tht-btn">TürkHackTeam</a>
+        <a href="https://www.turkhackteam.org" class="tht-btn">TürkHackTeam</a>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <p>Copyright &copy; AimPluqqed 2024. Tüm hakları saklıdır.</p>
     </footer>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
