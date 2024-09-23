@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial', sans-serif; /* Modern font */
     height: 100vh;
     background: linear-gradient(135deg, #09203f, #537895);
     display: flex;
@@ -49,6 +49,115 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 32px;
     margin-bottom: 10px;
 }
+
+/* Dil Seçimi Stili */
+.language-selector {
+    padding: 12px 24px; /* Buton içindeki boşluk */
+    font-size: 18px; /* Yazı boyutu */
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Renk geçişi */
+    color: #fff; /* Yazı rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 50px; /* Yuvarlak kenarlar */
+    cursor: pointer; /* İmleci göster */
+    transition: all 0.4s ease; /* Tüm değişiklikler için animasyon */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Gölgelendirme */
+    text-transform: uppercase; /* Yazıları büyük harfe çevir */
+    font-weight: bold; /* Kalın yazı */
+    position: relative; /* Eğer bu özellik yoksa ekleyin */
+    z-index: 16; /* Diğer elementlerden üstte görünmesi için */   
+}
+
+
+/* Hover durumu için */
+.language-selector:hover {
+    background: linear-gradient(90deg, #0072ff, #00); /* Hover rengi geçişi */
+    transform: translateY(-5px) scale(1.05); /* Yukarı kaydırma ve büyütme efekti */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Gölgeyi artır */
+}
+
+/* Aktif durumda */
+.language-selector:active {
+    transform: translateY(2px); /* Aşağı hareket efekti */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Gölgeyi azalt */
+}
+
+.language-container {
+    position: absolute;
+    display: inline-block;
+    top: 15px;
+    right:20px;
+}
+
+.language-options {
+    display: none; /* Başlangıçta gizli olmalı */
+    border: 1px solid #09203f; /* İnce yeşil kenarlık */
+    border-radius: 12px; /* Daha yuvarlak köşeler */
+    background-color: #ffffff; /* Arka plan rengi beyaz */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Daha belirgin gölgelendirme */
+    transition: all 0.3s ease; /* Yumuşak animasyon */
+    position: absolute; /* Üstte konumlandırmak için */
+    right: 0; /* Sağ tarafta görünmesi için */
+    z-index: 1000; /* Diğer içeriklerin üstünde kalması için */
+    padding: 10px; /* İçerik için boşluk */
+    min-width: 150px; /* Minimum genişlik ayarı */
+}
+
+.language-options a {
+    display: block; /* Her bir seçeneği blok haline getir */
+    padding: 10px 15px; /* İçerik için boşluk */
+    text-decoration: none; /* Altı çizili metni kaldır */
+    color: #333;
+    border-radius: 8px; /* Bağlantıların köşelerini yuvarla */
+    transition: background-color 0.3s,/* Arka plan ve metin rengi geçişi için animasyon */
+}
+
+/* Bağlantılara üzerine gelindiğinde efekt */
+.language-options a:hover {
+    background-color: darkgrey;
+    color: #1B5E20; /* Üzerine gelindiğinde metin rengi değişimi */
+    transform: translateY(-2px); /* Hafif yukarı kaydırma efekti */
+}
+
+.language-options.show {
+    display: block; /* Görünür hale getir */
+    opacity: 1; /* Görünür hale getir */
+    transform: translateY(0); /* Normal pozisyona dön */
+}
+    
+/* Fade in animasyonu */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Başlangıçta görünmez */
+        transform: translateY(-10px); /* Yukarıdan gelme efekti */
+    }
+    to {
+        opacity: 1; /* Tam görünür hale gelir */
+        transform: translateY(0); /* Son haline döner */
+    }
+}
+
+/* Sağ tık uyarı mesajı stili */
+.alert-box {
+    position: absolute;
+    top: 20px; /* İstediğin pozisyona göre ayarla */
+    left: 20px; /* İstediğin pozisyona göre ayarla */
+    padding: 10px 20px; /* İç boşluk */
+    color: white; /* Yazı rengi */
+    background-color: rgba(255, 0, 0, 0.7); /* Arka plan rengi */
+    border-radius: 8px; /* Kenar yuvarlama */
+    border: 2px solid #ff0000; /* Kenarlık */
+    animation: fadeIn 0.5s ease; /* Fade in animasyonu */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Gölge efekti */
+    z-index: 9999; /* Diğer elementlerden üstte görünmesi için */
+}
+
+/* Hover durumunda efekt */
+.closed-source:hover {
+    transform: scale(1.05); /* Büyütme efekti */
+    transition: all 0.3s ease; /* Yumuşak geçiş */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Hoverda daha belirgin gölge */
+}
+
 
 /* Modern Navigasyon */
 .header nav ul {
@@ -173,7 +282,6 @@ body::-webkit-scrollbar-thumb:hover {
     transform: rotateY(5deg) rotateX(2deg); /* Hover efekti eklendi */
 }
 
-
 .tht-btn {
     font-family: 'Montserrat', sans-serif; /* Modern font */
     font-size: 18px; /* Font boyutu */
@@ -184,29 +292,26 @@ body::-webkit-scrollbar-thumb:hover {
     border: none; /* Kenar boşluğu yok */
     border-radius: 5px; /* Kenar yuvarlama */
     text-decoration: none; /* Alt çizgi yok */
-    transition: background-color 0.3s;
+    transition: background-color 0.3s; /* Hover animasyonu */
 }
 
 .tht-btn:hover {
     background-color: #0099cc; /* Hoverda arka plan rengi */
 }
 
-.tht-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.tht-section:hover {
-    transform: rotateY(5deg) rotateX(2deg); /* Hover efekti eklendi */
-}
-
-/* Footer */
 .footer {
-    margin-top: 50px;
+    margin-top: auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
     text-align: center;
-    width: 100%;
-    color: white;
-    font-size: 16px;
+    font-size: 16px; /* Yazı boyutu */
+    width: 100%; /* Tam genişlik */
+    position: relative; /* Konum ayarı */
 }
+
+.footer p 
+    margin: 0; /* Yazının üstünde veya altında boşluk olmaması için */
+    display: inline-block; /* Inline block ayarı ile yazıyı ortala */
+ }
+
