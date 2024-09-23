@@ -10,253 +10,203 @@ body {
     height: 100vh;
     background: linear-gradient(135deg, #09203f, #537895);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    overflow-y: scroll; /* Dikey kaydırma çubuğu */
+    overflow-x: hidden; /* Yatay kaydırma çubuğu yok */
     perspective: 1000px;
 }
 
-/* Uyarı Mesajı */
-#warning-message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px;
+/* Kaydırma Çubuğu Stili */
+body::-webkit-scrollbar {
+    width: 12px; /* Kaydırma çubuğu genişliği */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Kaydırma çubuğu arka planı */
     border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    background: rgba(255, 0, 0, 0.7);
-    border: 2px solid red;
-    opacity: 0;
-    transition: all 0.5s ease;
-    visibility: hidden;
 }
 
-#warning-message.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Arka Plan Efekti */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #09203f, #000);
-    animation: background-animation 20s infinite linear;
-}
-
-@keyframes background-animation {
-    0% { background-position: 0 0; }
-    100% { background-position: 100px 100px; }
-}
-
-/* Kar Yağışı */
-.snowflakes {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 10; /* Üstte görünmesi için */
-}
-
-.snowflake {
-    position: absolute;
-    top: -10px;
-    z-index: 10;
-    color: #FFF;
-    font-size: 1.5em;
-    opacity: 0.9;
-    user-select: none;
-    pointer-events: none;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-.snowflake:nth-child(1) {
-    left: 10%;
-    animation-duration: 10s;
-    animation-delay: 0s;
-    font-size: 1.2em;
-}
-
-.snowflake:nth-child(2) {
-    left: 20%;
-    animation-duration: 12s;
-    animation-delay: 2s;
-    font-size: 1.5em;
-}
-
-.snowflake:nth-child(3) {
-    left: 30%;
-    animation-duration: 14s;
-    animation-delay: 4s;
-    font-size: 1.8em;
-}
-
-.snowflake:nth-child(4) {
-    left: 40%;
-    animation-duration: 16s;
-    animation-delay: 6s;
-    font-size: 1.4em;
-}
-
-.snowflake:nth-child(5) {
-    left: 50%;
-    animation-duration: 11s;
-    animation-delay: 1s;
-    font-size: 1.3em;
-}
-
-.snowflake:nth-child(6) {
-    left: 60%;
-    animation-duration: 13s;
-    animation-delay: 3s;
-    font-size: 1.7em;
-}
-
-.snowflake:nth-child(7) {
-    left: 70%;
-    animation-duration: 15s;
-    animation-delay: 5s;
-    font-size: 1.6em;
-}
-
-.snowflake:nth-child(8) {
-    left: 80%;
-    animation-duration: 9s;
-    animation-delay: 7s;
-    font-size: 1.1em;
-}
-
-/* 3D Uyarı Mesajı */
-#error-message, #success-message {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 20px;
+body::-webkit-scrollbar-thumb {
+    background: #00c6ff; /* Kaydırma çubuğu rengi */
     border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transform: scale(0.5) rotateY(30deg);
-    opacity: 0;
-    transition: all 0.5s ease;
-    visibility: hidden;
-    transform-style: preserve-3d;
 }
 
-#error-message {
-    background: rgba(255, 0, 0, 0.7);
-    border: 2px solid red;
+body::-webkit-scrollbar-thumb:hover {
+    background: #00a3e0; /* Hoverda rengi değiştir */
 }
 
-#success-message {
-    background: rgba(0, 255, 0, 0.7);
-    border: 2px solid green;
+/* Header */
+.header {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
-#error-message.show, #success-message.show {
-    transform: scale(1) rotateY(0deg);
-    opacity: 1;
-    visibility: visible;
+.header h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 10px;
 }
 
-/* Login Container */
-.login-container {
+/* Modern Navigasyon */
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.header nav ul li {
+    margin: 0 15px;
+}
+
+.header nav ul li a {
+    color: #00c6ff; /* Modern mavi rengi */
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500; /* Modern bir görünüm için ağırlık artırıldı */
+    letter-spacing: 1px; /* Harf aralığı eklendi */
+    transition: color 0.3s ease, transform 0.3s ease; /* Animasyon eklendi */
+}
+
+.header nav ul li a:hover {
+    color: #fff; /* Hoverda beyaz renge geçiş */
+    transform: scale(1.1); /* Hoverda biraz büyütme */
+}
+
+/* Homepage Container */
+.homepage-container {
+    text-align: center;
     position: relative;
-    width: 350px;
+    width: 400px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     padding: 40px;
-    text-align: center;
     backdrop-filter: blur(10px);
     transition: all 0.4s ease;
     transform-style: preserve-3d;
+    margin-top: 50px;
 }
 
-.login-container:hover {
+.homepage-container h2 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.homepage-container p {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.homepage-container:hover {
     transform: rotateY(5deg) rotateX(2deg);
 }
 
-/* Başlık */
-.login-box h2 {
-    color: #fff;
-    font-size: 24px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-/* Input Boxlar */
-.textbox {
-    margin-bottom: 20px;
-    position: relative;
-    width: 100%;
-}
-
-.textbox input {
-    width: 100%;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.15);
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-}
-
-.textbox input:focus {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-
-/* 3D Buton Efekti */
 .login-btn {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    font-size: 18px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform: translateZ(10px);
-    perspective: 500px;
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-size: 18px; /* Font boyutu */
+    font-weight: 600; /* Font kalınlığı */
+    color: #fff; /* Buton yazı rengi */
+    background-color: #00c6ff; /* Buton arka plan rengi */
+    padding: 10px 20px; /* Buton içi boşluk */
+    border: none; /* Kenar boşluğu yok */
+    border-radius: 5px; /* Kenar yuvarlama */
+    text-decoration: none; /* Alt çizgi yok */
+    transition: background-color 0.3s; /* Hover animasyonu */
 }
 
 .login-btn:hover {
-    transform: translateZ(15px) scale(1.05);
-    box-shadow: 0 12px 40px rgba(0, 150, 255, 0.7);
+    background-color: #0099cc; /* Hoverda arka plan rengi */
 }
 
-.login-btn:active {
-    transform: translateZ(5px) scale(0.98);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+/* About Section */
+.about-section {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: white;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.about-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-section:hover {
+    transform: rotateY(5deg) rotateX(2deg); /* Hover efekti eklendi */
+}
+
+/* THT Section */
+.tht-section {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: white;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.tht-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.tht-section:hover {
+    transform: rotateY(5deg) rotateX(2deg); /* Hover efekti eklendi */
+}
+
+
+.tht-btn {
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-size: 18px; /* Font boyutu */
+    font-weight: 600; /* Font kalınlığı */
+    color: #fff; /* Buton yazı rengi */
+    background-color: #00c6ff; /* Buton arka plan rengi */
+    padding: 10px 20px; /* Buton içi boşluk */
+    border: none; /* Kenar boşluğu yok */
+    border-radius: 5px; /* Kenar yuvarlama */
+    text-decoration: none; /* Alt çizgi yok */
+    transition: background-color 0.3s;
+}
+
+.tht-btn:hover {
+    background-color: #0099cc; /* Hoverda arka plan rengi */
+}
+
+.tht-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.tht-section:hover {
+    transform: rotateY(5deg) rotateX(2deg); /* Hover efekti eklendi */
+}
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 16px;
 }
