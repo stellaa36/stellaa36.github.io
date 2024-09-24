@@ -18,7 +18,6 @@ body {
 }
 
 
-
 /* Kaydırma Çubuğu Stili */
 body::-webkit-scrollbar {
     width: 12px; /* Kaydırma çubuğu genişliği */
@@ -344,8 +343,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .footer {
     margin-top: 23px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    background-color: transparent;
     color: #fff;
     border: none;
     text-align: center;
