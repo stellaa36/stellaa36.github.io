@@ -10,7 +10,7 @@ languageSelector.addEventListener('click', () => {
 function changeLanguage(lang) {
     if (lang === 'tr') {
         // Türkçe dilinde içerik güncellemeleri
-        document.querySelector('.header h1').innerText = "Stella'nın Sitesine Hoşgeldiniz";
+        document.querySelector('.header h1').innerText = "🌏 Stella'nın Sitesine Hoşgeldiniz 🌏";
         document.querySelector('.homepage-container h2').innerText = "Merhabalar 👋";
         document.querySelector('.homepage-container p').innerText = "Siteme hoşgeldin, giriş yapmak için alttaki 'Giriş Yap ✔️' butonuna tıkla!";
         document.querySelector('.login-btn').innerText = "Giriş Yap ✔️";
@@ -21,7 +21,7 @@ function changeLanguage(lang) {
         document.querySelector('.ataturk-section a').innetText = "Gazi Mustafa Kemal ATATÜRK 💥";
     } else if (lang === 'en') {
         // İngilizce dilinde içerik güncellemeleri
-        document.querySelector('.header h1').innerText = "Welcome to Stella's Site";
+        document.querySelector('.header h1').innerText = "🌏 Welcome to Stella's Site 🌏";
         document.querySelector('.homepage-container h2').innerText = "Hello 👋";
         document.querySelector('.homepage-container p').innerText = "Welcome to my site, click the 'Login ✔️' button below to log in!";
         document.querySelector('.login-btn').innerText = "Login ✔️";
@@ -32,7 +32,7 @@ function changeLanguage(lang) {
         document.querySelector('.ataturk-section a').innetText = "Gazi Mustafa Kemal ATATÜRK 💥";
     } else if (lang === 'es') {
         // İspanyolca dilinde içerik güncellemeleri
-        document.querySelector('.header h1').innerText = "Bienvenido al sitio de Stella";
+        document.querySelector('.header h1').innerText = "🌏 Bienvenido al sitio de Stella 🌏";
         document.querySelector('.homepage-container h2').innerText = "Hola 👋";
         document.querySelector('.homepage-container p').innerText = "¡Bienvenido a mi sitio, haz clic en el botón 'Iniciar sesión ✔️' a continuación para iniciar sesión!";
         document.querySelector('.login-btn').innerText = "Iniciar sesión ✔️";
@@ -43,7 +43,7 @@ function changeLanguage(lang) {
         document.querySelector('.ataturk-section a').innetText = "Gazi Mustafa Kemal ATATÜRK 💥";
     } else if (lang === 'fr') {
         // Fransızca dilinde içerik güncellemeleri
-        document.querySelector('.header h1').innerText = "Bienvenue sur le site de Stella";
+        document.querySelector('.header h1').innerText = "🌏 Bienvenue sur le site de Stella 🌏";
         document.querySelector('.homepage-container h2').innerText = "Bonjour 👋";
         document.querySelector('.homepage-container p').innerText = "Bienvenue sur mon site, cliquez sur le bouton 'Se connecter ✔️' ci-dessous pour vous connecter !";
         document.querySelector('.login-btn').innerText = "Se connecter ✔️";
