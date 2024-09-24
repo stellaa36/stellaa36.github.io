@@ -17,6 +17,8 @@ body {
     perspective: 1000px;
 }
 
+
+
 /* Kaydırma Çubuğu Stili */
 body::-webkit-scrollbar {
     width: 12px; /* Kaydırma çubuğu genişliği */
@@ -341,17 +343,19 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .footer {
-    margin-top: auto;
+    margin-top: 23px;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
+    border: none;
     text-align: center;
     font-size: 16px; /* Yazı boyutu */
     width: 100%; /* Tam genişlik */
     position: relative; /* Konum ayarı */
+    outline: none; /* Kontur kaldır */
 }
 
-.footer p 
+.footer p {
     margin: 0; /* Yazının üstünde veya altında boşluk olmaması için */
     display: inline-block; /* Inline block ayarı ile yazıyı ortala */
  }
