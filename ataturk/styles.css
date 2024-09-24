@@ -1,0 +1,105 @@
+/* Genel Ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #09203f, #537895);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 32px;
+}
+
+/* Galeri Stili */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.photo-card img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.photo-card p {
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Hover Efekti */
+.photo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+}
+
+/* Sağ tık uyarı mesajı stili */
+.alert-box {
+    position: absolute;
+    top: 20px; /* İstediğin pozisyona göre ayarla */
+    left: 20px; /* İstediğin pozisyona göre ayarla */
+    padding: 10px 20px; /* İç boşluk */
+    color: white; /* Yazı rengi */
+    background-color: rgba(255, 0, 0, 0.7); /* Arka plan rengi */
+    border-radius: 8px; /* Kenar yuvarlama */
+    border: 2px solid #ff0000; /* Kenarlık */
+    animation: fadeIn 0.5s ease; /* Fade in animasyonu */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Gölge efekti */
+    z-index: 9999; /* Diğer elementlerden üstte görünmesi için */
+}
+
+/* Hover durumunda efekt */
+.closed-source:hover {
+    transform: scale(1.05); /* Büyütme efekti */
+    transition: all 0.3s ease; /* Yumuşak geçiş */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Hoverda daha belirgin gölge */
+}
+
+/* Fade in animasyonu */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Başlangıçta görünmez */
+        transform: translateY(-10px); /* Yukarıdan gelme efekti */
+    }
+    to {
+        opacity: 1; /* Tam görünür hale gelir */
+        transform: translateY(0); /* Son haline döner */
+    }
+}
