@@ -236,7 +236,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* About Section */
 .about-section {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -260,7 +260,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* THT Section */
 .tht-section {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -299,6 +299,47 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #0099cc; /* Hoverda arka plan rengi */
 }
 
+
+ .ataturk-section {
+    margin-top: 20px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: white;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.ataturk-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.ataturk-section:hover {
+    transform: rotateY(5deg) rotateX(2deg); /* Hover efekti eklendi */
+}
+
+.ataturk-btn {
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-size: 18px; /* Font boyutu */
+    font-weight: 600; /* Font kalınlığı */
+    color: #fff; /* Buton yazı rengi */
+    background-color: #00c6ff; /* Buton arka plan rengi */
+    padding: 10px 20px; /* Buton içi boşluk */
+    border: none; /* Kenar boşluğu yok */
+    border-radius: 5px; /* Kenar yuvarlama */
+    text-decoration: none; /* Alt çizgi yok */
+    transition: background-color 0.3s; /* Hover animasyonu */
+}
+
+.ataturk-btn:hover {
+    background-color: #0099cc; /* Hoverda arka plan rengi */
+}
+
 .footer {
     margin-top: auto;
     padding: 20px;
@@ -314,4 +355,4 @@ body::-webkit-scrollbar-thumb:hover {
     margin: 0; /* Yazının üstünde veya altında boşluk olmaması için */
     display: inline-block; /* Inline block ayarı ile yazıyı ortala */
  }
-
+ 
