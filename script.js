@@ -50,7 +50,7 @@ function changeLanguage(lang) {
         document.querySelector('.about-section h2').innerText = "À propos de nous ❓";
         document.querySelector('.about-section p').innerText = "Je développe le site moi-même.";
         document.querySelector('.tht-section h2').innerText = "Contact 📱";
-        document.querySelector('.tht-section a').innerText = "TurkHackTeam 👨‍💻";
+        document.querySelector('.tht-section a').innertext = "TurkHackTeam 👨‍💻";
         document.querySelector('.ataturk-section a').innetText = "Gazi Mustafa Kemal ATATÜRK 💥";
     }
 
