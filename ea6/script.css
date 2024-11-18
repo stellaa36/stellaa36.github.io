@@ -1,0 +1,138 @@
+/* Genel stil ayarları */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #000000, #4c4c4c); /* Sabit arka plan */
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Container stili */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    top: -210px;
+    z-index: 1; /* İçeriği öne almak için */
+}
+
+/* Başlık stili */
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+}
+
+.title span {
+    color: #f39c12;
+}
+
+/* Mesaj stili */
+.message {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Footer stili */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    text-align: center;
+}
+
+/* Resim için stil */
+.hacked-image {
+    position: absolute;
+    top: 260px;
+    width: 100px;
+    height: auto;
+    z-index: 1;
+}
+
+/* Instagram logo kısmı */
+.social-links {
+    margin-top: 20px; /* Logo ile önceki yazılar arasına boşluk */
+}
+
+.instagram-logo {
+    width: 50px; /* Küçük boyutlu Instagram logosu */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Hover efekti */
+}
+
+.instagram-logo:hover {
+    transform: scale(1.2); /* Hoverda biraz büyüme efekti */
+}
+
+/* Kullanıcı Adı Stili */
+.username {
+    font-family: 'Poppins', sans-serif;  /* Modern font */
+    font-size: 1.3rem;  /* Yazı büyüklüğünü biraz daha arttırdık */
+    margin: 0 12px;  /* Kullanıcı adları arasına boşluk */
+    font-weight: 600;  /* Hafif kalınlaştırma */
+    color: #f39c12;  /* Kullanıcı adı rengi */
+    letter-spacing: 1px;  /* Harfler arasında boşluk */
+    text-transform: uppercase;  /* Büyük harfli yazı */
+    transition: transform 0.3s ease-in-out; /* Hover efekti */
+}
+
+/* Arka plan resmi ve parlaklık efektini sadece bir katman üzerine uyguluyoruz */
+body::after {
+    content: ''; /* Katman içeriği */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.hizliresim.com/po579p8.jpg'); /* Arka plan resmi */
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(50%); /* Parlaklığı %50 oranında kısmak için */
+    z-index: -1; /* Bu katmanı içeriklerin arkasına yerleştiriyoruz */
+}
+
+/* Scanline efekti ve çerçeve */
+.footer-message {
+    position: absolute;
+    bottom: 50px; /* Yazıyı sayfanın altına yakın bir yere yerleştirir */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Şeffaf çerçeve */
+    border-radius: 8px; /* Köşeleri yuvarlar */
+    background: rgba(0, 0, 0, 0.5); /* Hafif siyah bir arka plan */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Hafif parlak bir efekt */
+}
+
+/* Scanline efekti ve çerçeve */
+.footer-2 {
+    position: absolute;
+    bottom: 150px; /* Yazıyı sayfanın altına yakın bir yere yerleştirir */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Şeffaf çerçeve */
+    border-radius: 8px; /* Köşeleri yuvarlar */
+    background: rgba(0, 0, 0, 0.5); /* Hafif siyah bir arka plan */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Hafif parlak bir efekt */
+}
+
